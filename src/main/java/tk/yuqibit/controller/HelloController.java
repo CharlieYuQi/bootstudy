@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import tk.yuqibit.properties.MyConfig;
 import tk.yuqibit.service.UserService;
 
 /**
@@ -32,6 +33,9 @@ public class HelloController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private MyConfig myConfig;
     
     @RequestMapping("/")
     public String index() {
@@ -58,6 +62,14 @@ public class HelloController {
     @RequestMapping("/except")
     public String except() throws Exception {
         throw new Exception("test");
+    }
+    
+    @RequestMapping("/prop")
+    public String prop() throws Exception {
+        System.out.println(myConfig.getAuthorName());
+        System.out.println(myConfig.getTest());
+        System.out.println(myConfig.getVersion());
+        return "hello";
     }
 
 }
