@@ -17,7 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import tk.yuqibit.fastjson.JsonTestModel;
 import tk.yuqibit.properties.MyConfig;
 import tk.yuqibit.service.UserService;
 
@@ -70,6 +72,13 @@ public class HelloController {
         System.out.println(myConfig.getTest());
         System.out.println(myConfig.getVersion());
         return "hello";
+    }
+    
+    @RequestMapping("/json")
+    @ResponseBody
+    public JsonTestModel jsonTest()
+    {
+        return new JsonTestModel("admin", "admin@admin.com", 99);
     }
 
 }
