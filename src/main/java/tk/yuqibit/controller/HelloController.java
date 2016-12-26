@@ -13,6 +13,8 @@
  */
 package tk.yuqibit.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,7 @@ import tk.yuqibit.fastjson.JsonTestModel;
 import tk.yuqibit.properties.MyConfig;
 import tk.yuqibit.service.UserService;
 
+
 /**
  * @Type HelloController.java
  * @Desc 
@@ -32,6 +35,8 @@ import tk.yuqibit.service.UserService;
  */
 @Controller
 public class HelloController {
+    
+    private static Logger logger = LogManager.getLogger(HelloController.class);
 
     @Autowired
     private UserService userService;
@@ -39,6 +44,12 @@ public class HelloController {
     @Autowired
     private MyConfig myConfig;
     
+    
+    public HelloController() {
+        logger.info("info");
+        logger.error("error");
+    }
+
     @RequestMapping("/")
     public String index() {
         try {
@@ -47,7 +58,7 @@ public class HelloController {
         } catch (Exception e) {
             // TODO: handle exception
         }
-
+        logger.info("index log");
         return "index";
     }
 

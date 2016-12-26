@@ -13,6 +13,9 @@
  */
 package tk.yuqibit.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * @Type LoginController.java
  * @Desc 
@@ -25,6 +28,10 @@ public class LoginController {
     public LoginController() {
         // TODO Auto-generated constructor stub
     }
+    
+    private static Logger logger = LogManager.getLogger(LoginController.class);
+
+    
 
 }
 
