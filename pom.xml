@@ -41,6 +41,7 @@
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
 
+		<!-- 单元测试. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -62,6 +63,7 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+		<!-- JPA操作数据库. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -72,6 +74,8 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.27</version>
 		</dependency>
+
+		<!-- mysql 数据库驱动. -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -94,7 +98,12 @@
 			<version>1.2.23</version>
 		</dependency>
 
-
+		<!-- 包含支持UI模版（Velocity，FreeMarker，JasperReports）， 邮件服务， 脚本服务(JRuby)， 缓存Cache（EHCache）， 
+			任务计划Scheduling（uartz）。 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
 
 	</dependencies>
 

@@ -17,6 +17,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -36,6 +38,8 @@ import tk.yuqibit.service.UserService;
  */
 @Component
 public class MyUserDetailsService implements UserDetailsService {
+    
+    private static Logger logger = LogManager.getLogger(MyUserDetailsService.class);
 
 //    @Autowired
 //    private LoginService loginService;
@@ -48,6 +52,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
+        logger.info("load user:"+username);
         if (StringUtils.isBlank(username)) {
             throw new UsernameNotFoundException("用户名为空");
         }
